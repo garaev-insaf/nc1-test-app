@@ -1,16 +1,19 @@
 
+import * as React from 'react';
 import { TextField, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { getProfile } from '../../Actions/UserActions';
 import { useGlobalState } from '../../State/State';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileComponent = () => {
+    const navigate = useNavigate();
     const [loading, setLoading] = useState<boolean>(false);
     const [profile] = useGlobalState('profile');
     useEffect(() => {
         if (profile.id === null) {
+            // получаем данные профиля, если в наш глобальный стейт (profile.id === null - значение по умолчанию)
             getProfile(setLoading);
         }
     }, [])
@@ -19,7 +22,10 @@ const ProfileComponent = () => {
         loading ? <h2>Wait...</h2> :
             profile.id !== null ?
                 <main className='main_profile'>
+                    <button className="button_action" onClick={() => navigate(-1)}>Go Back</button>
                     <Container sx={{ py: 8 }} maxWidth="md">
+                        {/* Я не заморачивался над красотой отображения данных и сделал это на сверхпримитивном уровне
+                        Но и задизейбленные инпуты выбрал для дальнешего масштабирования: редактирование профиля */}
                         <Typography>Contact Info</Typography>
                         <TextField sx={{ width: '100%', my: '10px' }} id="outlined-basic" label="name" variant="outlined" disabled value={profile.name} />
                         <TextField sx={{ width: '100%', my: '10px' }} id="outlined-basic" label="username" variant="outlined" disabled value={profile.username} />

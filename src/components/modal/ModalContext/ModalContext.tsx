@@ -14,7 +14,7 @@ let ModalProvider: React.FC<IModalProviderProps> = ({ children }) => {
     let { modal, handleModal, modalContent } = useModal(); // используем деструктиразию
     return (
         // оборачиваем в provider, чтобы все вложенные компоненты имели доступ к к контектсу
-        // можно и без контекста, работать с redux, храня значения в нём, но context вполне заменяет его в данном случае
+        // можно и без контекста, работать с redux / любой другой state manager, храня значения в нём
         <Provider value={{ modal, handleModal, modalContent }}>
             <Modal />
             {children}

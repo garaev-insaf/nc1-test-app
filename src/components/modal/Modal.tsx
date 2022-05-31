@@ -11,6 +11,7 @@ const Modal = () => {
     let { modalContent, handleModal, modal } = React.useContext(ModalContext); // пользуемся деструктуризацией
     // проверка на активность модального окна
     if (modal && modalRoot !== null) {
+        // модальное окно примитивное и главной целью было показать навыки использования возможностей react'a
         return ReactDOM.createPortal(
             <div
                 className="main-modal">

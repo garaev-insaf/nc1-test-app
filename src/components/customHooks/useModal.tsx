@@ -1,7 +1,5 @@
 import React from "react";
 
-// создаем кастомный хук, где
-
 export default () => {
   let [modal, setModal] = React.useState(false); // состяеие модальноего окна (открыт - true, закрыт - false)
   let [modalContent, setModalContent] = React.useState({}); // состояние содержимого модального окна
