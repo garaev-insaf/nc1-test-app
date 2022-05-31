@@ -1,3 +1,4 @@
+import { NewsType } from './../static/types/types';
 import axios from "axios";
 import { setNews, setProfile } from "../State/State";
 

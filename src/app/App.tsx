@@ -4,9 +4,10 @@ import NewsComponent from "../components/MainTestComponent";
 
 function App() {
   return (
-    <div className="app">
-      <NewsComponent />
-    </div>
+      <div className="app">
+        <NewsComponent />
+      </div>
+
   )
 }
 
